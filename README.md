@@ -17,7 +17,7 @@ DeeP-LCC collects three types of trajectory data from mixed traffic:
 
 The following optimization problem is converted to quadratic programming for problem solving, and is implemented in a receding horizon manner.
 
-<img src="docs/img/problem_formulation.png" align="center" width="45%"/>
+<img src="docs/img/problem_formulation.png" align="center" width="50%"/>
 
 ## Contacts
 Relavent project: [LCC](https://github.com/soc-ucsd/LCC).
