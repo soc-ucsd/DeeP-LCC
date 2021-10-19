@@ -2,9 +2,16 @@
 In this project, we present a few demos of DeeP-LCC for Cooperative Control of Connected and Autonomous Vehicles (CAVs) in mixed traffic. 
 
 ## Data-EnablEd Predictive Leading Cruise Control (DeeP-LCC)
-DeeP-LCC is a data-driven predictive control strategy for CAVs in mixed traffic, where human-driven vehicles (HDVs) also exist. Our strategy aims to deal with unknown nonlinear car-following behaviors of HDVs. Insead of assuming a parametric car-following model, DeeP-LCC directly relies on measurable driving data to achieve safe and optimal control for CAVs. It is adapted from the standard [Data-EnablEd Predictive Control (DeePC)](https://ieeexplore.ieee.org/abstract/document/8795639/) method considering the characteristics of mixed traffic. DeeP-LCC is implemented in a receding horizon manner, in which input/output constraints are incorporated to achieve collision-free guarantees. 
+DeeP-LCC is a data-driven predictive control strategy for CAVs in mixed traffic, where human-driven vehicles (HDVs) also exist. Our strategy aims to deal with unknown nonlinear car-following behaviors of HDVs. 
+
+Insead of assuming a parametric car-following model, DeeP-LCC directly relies on measurable driving data to achieve safe and optimal control for CAVs. It is adapted from the standard [Data-EnablEd Predictive Control (DeePC)](https://ieeexplore.ieee.org/abstract/document/8795639/) method considering the characteristics of mixed traffic. DeeP-LCC is implemented in a receding horizon manner, in which input/output constraints are incorporated to achieve collision-free guarantees. 
 
 <img src="docs/img/system_schematic.png" align="center" width="100%"/>
+
+Related projects: 
+
+1. [Leading Cruise Control (LCC)](https://github.com/soc-ucsd/LCC)
+2. [Mixed-traffic](https://github.com/soc-ucsd/mixed-traffic)
 
 ## Data Collection
 DeeP-LCC collects three types of trajectory data from mixed traffic:
@@ -19,5 +26,7 @@ The following optimization problem is converted to quadratic programming for pro
 
 <img src="docs/img/problem_formulation.png" align="center" width="55%"/>
 
-## Contacts
-Relavent project: [LCC](https://github.com/soc-ucsd/LCC).
+## Contact us
+To contact us about Deep-LCC, email either [Jiawei Wang](mailto:wang-jw18@mails.tsinghua.edu.cn?Subject=DeeP-LCC) or [Yang Zheng](mailto:zhengy@eng.ucsd.edu?Subject=DeeP-LCC).
+
+
