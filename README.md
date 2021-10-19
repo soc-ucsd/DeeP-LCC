@@ -1,8 +1,8 @@
 # Demos for DeeP-LCC
-In this project, we present a few demos of DeeP-LCC for Cooperative Control of Connected and Autonomous Vehicles (CAVs) in mixed traffic flow. 
+In this project, we present a few demos of DeeP-LCC for Cooperative Control of Connected and Autonomous Vehicles (CAVs) in mixed traffic. 
 
 ## Data-EnablEd Predictive Leading Cruise Control (DeeP-LCC)
-DeeP-LCC is a data-driven predicted control strategy for CAVs in mixed traffic flow, where human-driven vehicles (HDVs) also exist and their behaviors are unknown. Insead of assuming a priori car-following model for HDVs, DeeP-LCC directly relies on measurable driving data of mixed traffic to achieve safe and optimal control for CAVs. Precisely, it is adapted from standard [Data-EnablEd Predictive Control (DeePC)](https://ieeexplore.ieee.org/abstract/document/8795639/) method, and is implemented in a receding horizon manner, in which input/output constraints are incorporated to achieve collision-free guarantees. 
+DeeP-LCC is a data-driven predictive control strategy for CAVs in mixed traffic, where human-driven vehicles (HDVs) also exist. Our strategy aims to deal with unknown nonlinear car-following behaviors of HDVs. Insead of assuming a parametric car-following model, DeeP-LCC directly relies on measurable driving data to achieve safe and optimal control for CAVs. It is adapted from the standard [Data-EnablEd Predictive Control (DeePC)](https://ieeexplore.ieee.org/abstract/document/8795639/) method considering the characteristics of mixed traffic. DeeP-LCC is implemented in a receding horizon manner, in which input/output constraints are incorporated to achieve collision-free guarantees. 
 
 <img src="docs/img/system_schematic.png" align="center" width="100%"/>
 
