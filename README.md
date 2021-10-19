@@ -9,13 +9,15 @@ DeeP-LCC is a data-driven predicted control strategy for CAVs in mixed traffic f
 ## Data Collection
 DeeP-LCC collects three types of trajectory data from mixed traffic:
 
-1.Control input: acceleration signal of the CAVs;
-2.Traffic output: velocity error of all the following vehicles (including HDVs and CAVs), and spacing error of the CAVs;
-3.External input: velocity error of the had vehicle.
+1. **Control input** ![](http://latex.codecogs.com/svg.latex?u): acceleration signal of the CAVs;
+2. **Traffic output** ![](http://latex.codecogs.com/svg.latex?y): velocity error of all the following vehicles (including HDVs and CAVs), and spacing error of the CAVs;
+3. **External input** ![](http://latex.codecogs.com/svg.latex?\epsilon): velocity error of the had vehicle.
 
 ## Optimization Formulation
 
+The following optimization problem is converted to quadratic programming for problem solving, and is implemented in a receding horizon manner.
 
+<img src="docs/img/problem_formulation.png" align="center" width="30%"/>
 
 ## Contacts
 Relavent project: [LCC](https://github.com/soc-ucsd/LCC).
