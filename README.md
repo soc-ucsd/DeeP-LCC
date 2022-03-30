@@ -26,6 +26,9 @@ The following optimization problem is converted to quadratic programming for pro
 
 <img src="docs/img/problem_formulation.png" align="center" width="55%"/>
 
+# Experimental Validation
+<img src="docs/img/experiment_allHDVs.gif" align="center" width="100%"/>
+
 ## Contact us
 To contact us about Deep-LCC, email either [Jiawei Wang](mailto:wang-jw18@mails.tsinghua.edu.cn?Subject=DeeP-LCC) or [Yang Zheng](mailto:zhengy@eng.ucsd.edu?Subject=DeeP-LCC).
 
