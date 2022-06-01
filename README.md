@@ -27,7 +27,7 @@ The following optimization problem is converted to quadratic programming for pro
 <img src="docs/img/problem_formulation.png" align="center" width="55%"/>
 
 # Experimental Validation
-
+The complete video can be found on [youtube](https://www.youtube.com/watch?v=ZZ2cWhapqpc).
 **Case 1: all the vehicles are HDVs.**
 <img src="docs/img/experiments_allHDVs.gif" align="center" width="90%"/>
 
