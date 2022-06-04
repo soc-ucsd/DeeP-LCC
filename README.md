@@ -1,6 +1,8 @@
 # Demos for DeeP-LCC
 In this project, we present a few demos of DeeP-LCC for Cooperative Control of Connected and Autonomous Vehicles (CAVs) in mixed traffic. 
 
+**See our experimental validation on [youtube](https://www.youtube.com/watch?v=ZZ2cWhapqpc).**
+
 ## Data-EnablEd Predictive Leading Cruise Control (DeeP-LCC)
 DeeP-LCC is a data-driven predictive control strategy for CAVs in mixed traffic, where human-driven vehicles (HDVs) also exist. Our strategy aims to deal with unknown nonlinear car-following behaviors of HDVs. 
 
@@ -28,6 +30,8 @@ The following optimization problem is converted to quadratic programming for pro
 
 # Experimental Validation
 
+**The complete video can be found on [youtube](https://www.youtube.com/watch?v=ZZ2cWhapqpc).**
+
 **Case 1: all the vehicles are HDVs.**
 <img src="docs/img/experiments_allHDVs.gif" align="center" width="90%"/>
 
@@ -37,7 +41,7 @@ The following optimization problem is converted to quadratic programming for pro
 **Case 3: Vehicles no.2 and no.4 utilize DeeP-LCC.**
 <img src="docs/img/experiments_001010.gif" align="center" width="90%"/>
 
-**The complete video can be found on [youtube](https://www.youtube.com/watch?v=ZZ2cWhapqpc).**
+
 
 ## Contact us
 To contact us about Deep-LCC, email either [Jiawei Wang](mailto:wang-jw18@mails.tsinghua.edu.cn?Subject=DeeP-LCC) or [Yang Zheng](mailto:zhengy@eng.ucsd.edu?Subject=DeeP-LCC).
