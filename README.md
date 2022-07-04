@@ -32,7 +32,7 @@ The following optimization problem is converted to quadratic programming for pro
 
 **The complete video can be found on [youtube](https://www.youtube.com/watch?v=ZZ2cWhapqpc).**
 
-**Straight road experiments.**
+**A. Straight road experiments.**
 
 Case 1: all the vehicles are HDVs.
 <img src="docs/img/experiments_allHDVs.gif" align="center" width="90%"/>
