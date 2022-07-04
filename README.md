@@ -30,6 +30,7 @@ The following optimization problem is converted to quadratic programming for pro
 
 # Experimental Validation
 
+We carry out experimental validations on a miniature traffic platform.
 
 ## A. Straight road experiments [(youtube link)](https://www.youtube.com/watch?v=ZZ2cWhapqpc)
 
