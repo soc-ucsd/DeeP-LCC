@@ -31,7 +31,7 @@ The following optimization problem is converted to quadratic programming for pro
 # Experimental Validation
 
 
-**A. Straight road experiments [(youtube link)](https://www.youtube.com/watch?v=ZZ2cWhapqpc).**
+##A. Straight road experiments [(youtube link)](https://www.youtube.com/watch?v=ZZ2cWhapqpc)
 
 Case 1: all the vehicles are HDVs.
 <img src="docs/img/experiments_allHDVs.gif" align="center" width="90%"/>
@@ -44,7 +44,7 @@ Case 3: Vehicles no.2 and no.4 utilize DeeP-LCC.
 
 
 
-## Contact us
+# Contact us
 To contact us about Deep-LCC, email either [Jiawei Wang](mailto:wang-jw18@mails.tsinghua.edu.cn?Subject=DeeP-LCC) or [Yang Zheng](mailto:zhengy@eng.ucsd.edu?Subject=DeeP-LCC).
 
 
