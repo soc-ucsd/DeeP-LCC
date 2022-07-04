@@ -32,13 +32,13 @@ The following optimization problem is converted to quadratic programming for pro
 
 **The complete video can be found on [youtube](https://www.youtube.com/watch?v=ZZ2cWhapqpc).**
 
-**Case 1: all the vehicles are HDVs.**
+Case 1: all the vehicles are HDVs.
 <img src="docs/img/experiments_allHDVs.gif" align="center" width="90%"/>
 
-**Case 2: Vehicle no.2 utilizes DeeP-LCC.**
+Case 2: Vehicle no.2 utilizes DeeP-LCC.
 <img src="docs/img/experiments_001000.gif" align="center" width="90%"/>
 
-**Case 3: Vehicles no.2 and no.4 utilize DeeP-LCC.**
+Case 3: Vehicles no.2 and no.4 utilize DeeP-LCC.
 <img src="docs/img/experiments_001010.gif" align="center" width="90%"/>
 
 
