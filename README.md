@@ -3,6 +3,8 @@ In this project, we present a few demos of DeeP-LCC for Cooperative Control of C
 
 **See our experimental validation on [youtube](https://www.youtube.com/watch?v=ZZ2cWhapqpc).**
 
+See [Distributed DeeP-LCC](https://github.com/wangjw18/Distributed-DeeP-LCC) for a distributed version of DeeP-LCC, which is applicable to large-scale mixed traffic control.
+
 ## Data-EnablEd Predictive Leading Cruise Control (DeeP-LCC)
 DeeP-LCC is a data-driven predictive control strategy for CAVs in mixed traffic, where human-driven vehicles (HDVs) also exist. Our strategy aims to deal with unknown nonlinear car-following behaviors of HDVs. 
 
@@ -14,6 +16,7 @@ Related projects:
 
 1. [Leading Cruise Control (LCC)](https://github.com/soc-ucsd/LCC)
 2. [Mixed-traffic](https://github.com/soc-ucsd/mixed-traffic)
+3. [Distributed DeeP-LCC](https://github.com/wangjw18/Distributed-DeeP-LCC)
 
 ## Data Collection
 DeeP-LCC collects three types of trajectory data from mixed traffic:
@@ -48,6 +51,6 @@ Case 3: Vehicles no.2 and no.4 utilize DeeP-LCC.
 
 
 # Contact us
-To contact us about Deep-LCC, email either [Jiawei Wang](mailto:wang-jw18@mails.tsinghua.edu.cn?Subject=DeeP-LCC) or [Yang Zheng](mailto:zhengy@eng.ucsd.edu?Subject=DeeP-LCC).
+To contact us about DeeP-LCC, email either [Jiawei Wang](mailto:wang-jw18@mails.tsinghua.edu.cn?Subject=DeeP-LCC) or [Yang Zheng](mailto:zhengy@eng.ucsd.edu?Subject=DeeP-LCC).
 
 
