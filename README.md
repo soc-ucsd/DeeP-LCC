@@ -1,5 +1,5 @@
 # Demos for DeeP-LCC
-In this project, we present a few demos of DeeP-LCC for Cooperative Control of Connected and Autonomous Vehicles (CAVs) in mixed traffic. 
+In this project, we present a few demos of DeeP-LCC for Cooperative Control of Connected and Autonomous Vehicles (CAVs) in mixed traffic. The paper can be found [here](https://arxiv.org/abs/2203.10639).
 
 **See our experimental validation on [youtube](https://www.youtube.com/watch?v=ZZ2cWhapqpc).**
 
