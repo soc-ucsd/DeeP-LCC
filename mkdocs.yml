@@ -1,0 +1,72 @@
+site_name: DeeP-LCC
+site_author: Haoxing Du, Meihui Liu, Yang Zheng
+
+# Repository
+repo_name: soc-ucsd/DeeP-LCC
+repo_url: https://github.com/soc-ucsd/DeeP-LCC
+edit_uri: edit/main/docs
+
+# Copyright
+copyright: Copyright &copy; 2022 SOC Lab
+
+nav:
+    - Welcome: index.md
+    - DeeP-LCC: deepLCC.md
+    
+    
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - tables
+  - toc:
+      permalink: true
+  - attr_list
+  - md_in_html
+# Configuration
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.tracking
+    - navigation.indexes
+    - toc.integrate 
+    - toc.follow
+    - navigation.expand
+  language: en
+  icon:
+    repo: fontawesome/brands/github
+    
+  palette:
+      # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/brightness-7 
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+    
+plugins:
+   - glightbox:
+       touchNavigation: true
+       loop: false
+       effect: zoom
+       width: 100%
+       height: auto
+       zoomable: true
+       draggable: true
+       skip_classes: 
+         - custom-skip-class-name
+       auto_caption: false
+       caption_position: bottom
