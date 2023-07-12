@@ -16,7 +16,7 @@ Graph of the dependency of all Matlab files:
 This main function is used for safety-critical simulation in the scenario that the head vehicle takes a sudden brake. More detailed can be refered to Section V of the paper "Data-Driven Predicted Control for Connected and Autonomous Vehicles in Mixed Traffic".
 
 Add path and initialization.
-```matlab=
+```matlab
 clc; close all; clear;
 addpath('_fcn');
 warning off;
@@ -25,7 +25,7 @@ warning off;
 Parameter setup. This section includes Scenario Setup and HDV setup.
 
 1. Scenario Setup
-```matlab=
+```matlab
 % whether traffic flow is mixed
 mix                 = 1;                    % 0. all HDVs; 1. there exist CAVs
 ID                  = [0,0,1,0,0,1,0,0];    % ID of vehicle types
@@ -47,7 +47,7 @@ total_time_step     = total_time/Tstep;
 ```
 
 2. HDV setup
-```matlab=
+```matlab
 % Type for HDV car-following model
 hdv_type            = 1;    % 1. OVM   2. IDM
 % Parameter setup for HDV 
@@ -66,7 +66,7 @@ Formulation for DeeP-LCC
 
 - Parameter setup
 
-```matlab=
+```matlab
 % Type of the controller
 controller_type     = 2;    % 1. DeeP-LCC  2. MPC 
 % Initialize Equilibrium Setup (they might be updated in the control process)
@@ -105,7 +105,7 @@ fixed_spacing_bool      = 0;    % wheter fix equilibrium spacing
 
 - Process parameters
 
-```matlab=
+```matlab
 n_ctr = 2*n_vehicle;    % number of state variables
 m_ctr = n_cav;          % number of input variables
 switch measure_type     % number of output variables
@@ -131,14 +131,14 @@ e           = zeros(1,total_time_step);         % external input
 
 - Pre-collected data
 
-```matlab=
+```matlab
 % load pre-collected data for DeeP-LCC
 i_data              = 1;    % id of the pre-collected data
 load(['_data\trajectory_data_collection\data',data_str,'_',num2str(i_data),'_noiseLevel_',num2str(acel_noise),'.mat']);
 ```
 
 Simulation
-```matlab=
+```matlab
 % Mixed traffic states
 % S(time,vehicle id,state variable), in state variable: 1. position; 2. velocity; 3. acceleration
 S               = zeros(total_time_step,n_vehicle+1,3); 
@@ -155,7 +155,7 @@ r               = zeros(p_ctr,total_time_step+N);
 Experiment starts here
 
 - Initialization: the CAVs and the head vehicle have zero control input
-```matlab=
+```matlab
 % initial past data in control process
 uini = zeros(m_ctr,Tini);
 eini = zeros(1,Tini);
@@ -193,7 +193,7 @@ previous_u_opt = 0;
 ```
 - Continue the simulation
 
-```matlab=
+```matlab
 for k = Tini:total_time_step-1
     % calculate acceleration for the HDVs
     acel         =  HDV_dynamics(S(k,:,:),hdv_parameter) ...
@@ -288,7 +288,7 @@ fprintf('Simulation ends at %6.4f seconds \n', tsim);
 
 - Results output
 
-```matlab=
+```matlab
 if mix
 switch controller_type
     case 1
@@ -314,7 +314,7 @@ end
 This main function is used for NEDC simulation in the scenario that the head vehicle follows a trajectory modified from the Extra-Urban Driving Cycle (EUDC) in New European Driving Circle (NEDC). More detailed can be refered to Section V of the paper "Data-Driven Predicted Control for Connected and Autonomous Vehicles in Mixed Traffic".
 
 Add path and initialization.
-```matlab=
+```matlab
 clc; close all; clear;
 addpath('_fcn');
 warning off;
@@ -324,7 +324,7 @@ Parameter setup. This section includes Scenario Setup and HDV setup.
 
 1. Scenario Setup
 
-```matlab=
+```matlab
 % whether traffic flow is mixed
 mix                 = 1;                    % 0. all HDVs; 1. there exist CAVs
 ID                  = [0,0,1,0,0,1,0,0];    % ID of vehicle types
@@ -350,7 +350,7 @@ total_time_step             = round(total_time/Tstep);
 
 2. HDV setup
 
-```matlab=
+```matlab
 % Type for HDV car-following model
 hdv_type            = 1;    % 1. OVM   2. IDM
 % Parameter setup for HDV 
@@ -370,7 +370,7 @@ Formulation for DeeP-LCC
 
 - Parameter setup
 
-```matlab=
+```matlab
 % Type of the controller
 controller_type     = 1;    % 1. DeeP-LCC  2. MPC 
 % Initialize Equilibrium Setup (they might be updated in the control process)
@@ -404,7 +404,7 @@ measure_type        = 3;    % 1. Only the velocity errors of all the vehicles ar
 
 - Process parameters
 
-```matlab=
+```matlab
 n_ctr           = 2*n_vehicle;    % number of state variables
 m_ctr           = n_cav;          % number of input variables
 switch measure_type               
@@ -430,14 +430,14 @@ e           = zeros(1,total_time_step);         % external input
 
 - Pre-collected data
 
-```matlab=
+```matlab
 % load pre-collected data for DeeP-LCC
 i_data              = 1;    % id of the pre-collected data
 load(['_data\trajectory_data_collection\data',data_str,'_',num2str(i_data),'_noiseLevel_',num2str(acel_noise),'.mat']);
 ```
 
 Simulation
-```matlab=
+```matlab
 % Mixed traffic states
 % S(time,vehicle id,state variable), in state variable: 1. position; 2. velocity; 3. acceleration
 S               = zeros(total_time_step,n_vehicle+1,3); 
@@ -453,7 +453,7 @@ r               = zeros(p_ctr,total_time_step+N);
 
 Experiment starts here
 - Initialization: all the vehicles use the HDV model
-```matlab=
+```matlab
 for k = 1:initialization_time/Tstep-1
     % calculate acceleration
     acel            =  HDV_dynamics(S(k,:,:),hdv_parameter) ...
@@ -483,7 +483,7 @@ eini                = S(k-Tini+1:k,1,2) - v_star;
 
 - The CAVs start to use DeeP-LCC
 
-```matlab=
+```matlab
 for k = initialization_time/Tstep:total_time_step-1
     % calculate acceleration for the HDVs
     acel            =  HDV_dynamics(S(k,:,:),hdv_parameter) ...
@@ -558,7 +558,7 @@ fprintf('Simulation ends at %6.4f seconds \n', tsim);
 ```
 
 Results output
-```matlab=
+```matlab
 if mix
 switch controller_type
     case 1    
@@ -590,7 +590,7 @@ This function takes S and parameter as input to  calculate the acceleration of H
 <details>
 <summary>Click here to view code</summary>
 
-```matlab=
+```matlab
 function [acel] = HDV_dynamics(S,parameter)
 
 num_vehicle = size(S,2)-1;
@@ -657,7 +657,7 @@ This function is used for generating a Hankel matrix of order L.
 <details>
 <summary>Click here to view code</summary>
 
-```matlab=
+```matlab
 function [U] = hankel_matrix(u,L)
 
 m = size(u,1);
@@ -687,7 +687,7 @@ This function take the a series of parameters setting as input to measure the ou
 <details>
 <summary>Click here to view code</summary>
 
-```matlab=
+```matlab
 function [y] = measure_mixed_traffic(vel,pos,ID,v_star,s_star,type)
 
 pos_cav     = find(ID==1);          % position of CAVs
@@ -759,7 +759,7 @@ We transform the problem into **standard quadratic programming** for calculation
 <details>
 <summary>Click here to view code</summary>
 
-```matlab=
+```matlab
 function [u_opt,y_opt,problem_status] = qp_DeeP_LCC(Up,Yp,Uf,Yf,Ep,Ef,...
     uini,yini,eini,Q,R,r,lambda_g,lambda_y,u_limit,s_limit)
 
@@ -877,7 +877,7 @@ We transform the problem into **standard quadratic programming** for calculation
 <details>
 <summary>Click here to view code</summary>
 
-```matlab=
+```matlab
 function [u_opt,y_opt,problem_status] = qp_MPC(ID,Ts,hdv_type,measure_type,...
     v_star,uini,yini,N,Q,R,r,u_limit,s_limit,previous_u_opt)
 
@@ -1007,7 +1007,7 @@ This function is used for CLCC model.
 <details>
 <summary>Click here to view code</summary>
 
-```matlab=
+```matlab
 function [pos_cav, n_vehicle, n_cav, A, Ad,Bd,Cd] = traffic_linear_model(ID,Ts,hdv_type,measure_type,v_star)
 
 switch hdv_type
@@ -1105,7 +1105,7 @@ This function is used for generating heterogeneous HDV paramters.
 <details>
 <summary>Click here to view code</summary>
 
-```matlab=
+```matlab
 hdv_type = 1;
 v_star   = 15;
 
@@ -1185,7 +1185,7 @@ This function is used for data collection for random times.
 <details>
 <summary>Click here to view code</summary>
 
-```matlab=
+```matlab
 data_total_number = 100;
 
 h_wait = waitbar(0,'please wait');
@@ -1359,7 +1359,7 @@ It serves the same purpose as [data_trajectoryDataCollection.m](https://github.c
 <details>
 <summary>Click here to view code</summary>
 
-```matlab=
+```matlab
 % Data set
 data_str         = '2';  % 1. random ovm  2. manual ovm  3. homogeneous ovm
 % Mix or not
@@ -1539,7 +1539,7 @@ Defining velocity of the head vehicle based on nedc.
 <details>
 <summary>Click here to view code</summary>
 
-```matlab=
+```matlab
 Tstep          = 0.05;
 total_time     = 50+8+69+13+50+35+30+20+10+14+20;
 time           = 1:Tstep:total_time;
@@ -1583,7 +1583,7 @@ It serves the same purpose as [nedc_trajectory.m](https://github.com/soc-ucsd/De
 <details>
 <summary>Click here to view code</summary>
 
-```matlab=
+```matlab
 Tstep          = 0.05;
 total_time     = 10+8+20+13+20+25+20+10+20;
 time           = 1:Tstep:total_time;
@@ -1623,7 +1623,7 @@ It serves the same purpose as [nedc_trajectory.m](https://github.com/soc-ucsd/De
 <details>
 <summary>Click here to view code</summary>
 
-```matlab=
+```matlab
 
 Tstep          = 0.05;
 total_time     = 50+8+69+13+50+35+30+20+10+14+20;
@@ -1671,7 +1671,7 @@ This function is used for analysis for simulation results under same data sample
 <details>
 <summary>Click here to view code</summary>
 
-```matlab=
+```matlab
 % Data set
 data_str         = '2';  % 1. random ovm  2. manual ovm  3. homogeneous ovm
 % Mix or not
@@ -1894,7 +1894,7 @@ This function is used for analysis for simulation results under same data sample
 <details>
 <summary>Click here to view code</summary>
 
-```matlab=
+```matlab
 % Data set
 data_str        = '2';  % 1. random ovm  2. manual ovm  3. homogeneous ovm
 % Type for HDV car-following model
@@ -1997,7 +1997,7 @@ This function is used for analysis for simulation results under same data sample
 <details>
 <summary>Click here to view code</summary>
 
-```matlab=
+```matlab
 % Data set
 data_str        = '2';  % 1. random ovm  2. manual ovm  3. homogeneous ovm
 % Mix or not
@@ -2300,7 +2300,7 @@ fprintf('Velocity error:   %4.4f \n',VelocityError);
 <details>
 <summary>Click here to view code</summary>
 
-```matlab=
+```matlab
 alpha = 0.6;
 beta = 0.9;
 
@@ -2371,7 +2371,7 @@ This simulates scenario 1.
 This simulates scenario 2.
 
 Both functions allow user to switch between MPC and DeePC method by changing variable values.
-```matlab= 
+```matlab
 controller_type     = 1    # 1. DeeP-LCC  2. MPC
 ```
 The optimization problem is solved in the following functions:
