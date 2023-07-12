@@ -2414,12 +2414,12 @@ The results are shown below:
 Simulation results in Experiment B. $(a)(c)(e)$ show the velocity, spacing, and acceleration profiles, respectively when all the vehicles are HDVs, while (b)(d)(f) show the corresponding profiles where the two CAVs utilize DeeP-LCC. In $(c)-(f)$, the profiles of the other HDVs are hidden.
 
 ## Runtime
-Here we present the runtime of both simulations at the time of creation of this webpage.\
-**Optimization for main_brake_simulation**\
-Matlab: 13.5 min\
-Python: 14   min\
-**Optimization for main_nedc_simulation**\
-Matlab: 56   min\
+Here we present the runtime of both simulations at the time of creation of this webpage.  
+**Optimization for main_brake_simulation**  
+Matlab: 13.5 min  
+Python: 14   min  
+**Optimization for main_nedc_simulation**  
+Matlab: 56   min  
 Python: 39.6 min
 
 
