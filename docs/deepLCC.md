@@ -16,15 +16,22 @@ Graph of the dependency of all Matlab files:
 This main function is used for safety-critical simulation in the scenario that the head vehicle takes a sudden brake. More detailed can be refered to Section V of the paper "Data-Driven Predicted Control for Connected and Autonomous Vehicles in Mixed Traffic".
 
 Add path and initialization.
+<details>
+<summary>Click here to view code</summary>
+
 ```matlab
 clc; close all; clear;
 addpath('_fcn');
 warning off;
 ```
+</details>
 
 Parameter setup. This section includes Scenario Setup and HDV setup.
 
-1. Scenario Setup
+- Scenario Setup
+<details>
+<summary>Click here to view code</summary>
+
 ```matlab
 % whether traffic flow is mixed
 mix                 = 1;                    % 0. all HDVs; 1. there exist CAVs
@@ -45,8 +52,12 @@ total_time          = 40;              % Total Simulation Time
 Tstep               = 0.05;            % Time Step
 total_time_step     = total_time/Tstep;
 ```
+</details>
 
-2. HDV setup
+- HDV setup
+<details>
+<summary>Click here to view code</summary>
+
 ```matlab
 % Type for HDV car-following model
 hdv_type            = 1;    % 1. OVM   2. IDM
@@ -61,10 +72,13 @@ end
 % Uncertainty for HDV acceleration
 acel_noise          = 0.1;  % A white noise signal on HDV's acceleration
 ```
+</details>
 
 Formulation for DeeP-LCC
 
 - Parameter setup
+<details>
+<summary>Click here to view code</summary>
 
 ```matlab
 % Type of the controller
@@ -102,8 +116,11 @@ fixed_spacing_bool      = 0;    % wheter fix equilibrium spacing
                                 % 1. fix the equilibrium spacing
 
 ```
+</details>
 
 - Process parameters
+<details>
+<summary>Click here to view code</summary>
 
 ```matlab
 n_ctr = 2*n_vehicle;    % number of state variables
@@ -128,16 +145,23 @@ y           = zeros(p_ctr,total_time_step);     % output variables
 pr_status   = zeros(total_time_step,1);         % problem status
 e           = zeros(1,total_time_step);         % external input
 ```
+</details>
 
 - Pre-collected data
+<details>
+<summary>Click here to view code</summary>
 
 ```matlab
 % load pre-collected data for DeeP-LCC
 i_data              = 1;    % id of the pre-collected data
 load(['_data\trajectory_data_collection\data',data_str,'_',num2str(i_data),'_noiseLevel_',num2str(acel_noise),'.mat']);
 ```
+</details>
 
 Simulation
+<details>
+<summary>Click here to view code</summary>
+
 ```matlab
 % Mixed traffic states
 % S(time,vehicle id,state variable), in state variable: 1. position; 2. velocity; 3. acceleration
@@ -151,10 +175,14 @@ S(1,:,2)        = v_star * ones(n_vehicle+1,1);
 %  reference trajectory is all zeros: stabilize the system to equilibrium
 r               = zeros(p_ctr,total_time_step+N); 
 ```
+</details>
 
 Experiment starts here
 
 - Initialization: the CAVs and the head vehicle have zero control input
+<details>
+<summary>Click here to view code</summary>
+
 ```matlab
 % initial past data in control process
 uini = zeros(m_ctr,Tini);
@@ -191,7 +219,11 @@ y(:,1:Tini) = yini;
 % For MPC, which might have infeasible cases
 previous_u_opt = 0; 
 ```
+</details>
+
 - Continue the simulation
+<details>
+<summary>Click here to view code</summary>
 
 ```matlab
 for k = Tini:total_time_step-1
@@ -284,9 +316,12 @@ tsim = toc;
 
 fprintf('Simulation ends at %6.4f seconds \n', tsim);
 ```
+</details>
 
 
 - Results output
+<details>
+<summary>Click here to view code</summary>
 
 ```matlab
 if mix
@@ -309,20 +344,27 @@ else
             'hdv_type','acel_noise','S','T','Tini','N','ID','Tstep','v_star');
 end
 ```
+</details>
 
 ##### [main_nedc_simulation.m](https://github.com/soc-ucsd/DeeP-LCC/blob/main/main_nedc_simulation.m)
 This main function is used for NEDC simulation in the scenario that the head vehicle follows a trajectory modified from the Extra-Urban Driving Cycle (EUDC) in New European Driving Circle (NEDC). More detailed can be refered to Section V of the paper "Data-Driven Predicted Control for Connected and Autonomous Vehicles in Mixed Traffic".
 
 Add path and initialization.
+<details>
+<summary>Click here to view code</summary>
+
 ```matlab
 clc; close all; clear;
 addpath('_fcn');
 warning off;
 ```
+</details>
 
 Parameter setup. This section includes Scenario Setup and HDV setup.
 
-1. Scenario Setup
+- Scenario Setup
+<details>
+<summary>Click here to view code</summary>
 
 ```matlab
 % whether traffic flow is mixed
@@ -347,8 +389,11 @@ total_time                  = initialization_time + adaption_time + end_time;
 Tstep                       = 0.05;             % Time Step
 total_time_step             = round(total_time/Tstep);
 ```
+</details>
 
-2. HDV setup
+- HDV setup
+<details>
+<summary>Click here to view code</summary>
 
 ```matlab
 % Type for HDV car-following model
@@ -365,10 +410,13 @@ end
 acel_noise          = 0.1;  % A white noise signal on HDV's acceleration
 
 ```
+</details>
 
 Formulation for DeeP-LCC
 
 - Parameter setup
+<details>
+<summary>Click here to view code</summary>
 
 ```matlab
 % Type of the controller
@@ -401,8 +449,11 @@ measure_type        = 3;    % 1. Only the velocity errors of all the vehicles ar
                             % 3. Velocity error and spacing error of the CAVs are measurable, 
                             %    and the velocity error of the HDVs are measurable.
 ```
+</details>
 
 - Process parameters
+<details>
+<summary>Click here to view code</summary>
 
 ```matlab
 n_ctr           = 2*n_vehicle;    % number of state variables
@@ -427,16 +478,23 @@ y           = zeros(p_ctr,total_time_step);     % output variables
 pr_status   = zeros(total_time_step,1);         % problem status
 e           = zeros(1,total_time_step);         % external input
 ```
+</details>
 
 - Pre-collected data
+<details>
+<summary>Click here to view code</summary>
 
 ```matlab
 % load pre-collected data for DeeP-LCC
 i_data              = 1;    % id of the pre-collected data
 load(['_data\trajectory_data_collection\data',data_str,'_',num2str(i_data),'_noiseLevel_',num2str(acel_noise),'.mat']);
 ```
+</details>
 
 Simulation
+<details>
+<summary>Click here to view code</summary>
+
 ```matlab
 % Mixed traffic states
 % S(time,vehicle id,state variable), in state variable: 1. position; 2. velocity; 3. acceleration
@@ -450,9 +508,13 @@ S(1,:,2)        = v_star * ones(n_vehicle+1,1);
 %  reference trajectory is all zeros: stabilize the system to equilibrium
 r               = zeros(p_ctr,total_time_step+N); 
 ```
+</details>
 
 Experiment starts here
 - Initialization: all the vehicles use the HDV model
+<details>
+<summary>Click here to view code</summary>
+
 ```matlab
 for k = 1:initialization_time/Tstep-1
     % calculate acceleration
@@ -480,8 +542,11 @@ uini                = u(:,k-Tini+1:k);
 yini                = y(:,k-Tini+1:k);
 eini                = S(k-Tini+1:k,1,2) - v_star;
 ```
+</details>
 
 - The CAVs start to use DeeP-LCC
+<details>
+<summary>Click here to view code</summary>
 
 ```matlab
 for k = initialization_time/Tstep:total_time_step-1
@@ -556,8 +621,12 @@ tsim = toc;
 
 fprintf('Simulation ends at %6.4f seconds \n', tsim);
 ```
+</details>
 
 Results output
+<details>
+<summary>Click here to view code</summary>
+
 ```matlab
 if mix
 switch controller_type
@@ -578,11 +647,13 @@ else
 end
 
 ```
+</details>
 
 #### Functions
 
 ##### [HDV_dynamics.m](https://github.com/soc-ucsd/DeeP-LCC/blob/main/_fcn/HDV_dynamics.m)
 This function takes S and parameter as input to  calculate the acceleration of HDVs.
+
 - S:            state of all the vehicles
 - type:         type of the HDV car-following model
 - parameter:    Parameter value in the car-following model
@@ -675,15 +746,16 @@ end
 
 ##### [measure_mixed_traffic.m](https://github.com/soc-ucsd/DeeP-LCC/blob/main/_fcn/measure_mixed_traffic.m)
 This function take the a series of parameters setting as input to measure the output in mixed traffic flow.
+
 - vel:      velocity of each vehicle
 - pos:      position of each vehicle    
 - ID:       ID of vehicle types (1 for CAV, 0 for HDV)
 - v_star:   equilibrium velocity
 - s_star:   equilibrium spacing
-- type:
-  1. Only the velocity errors of all the vehicles are measurable;
-  2. All the states, including velocity error and spacing error are measurable;
-  3. Velocity error and spacing error of the CAVs are measurable,and the velocity error of the HDVs are measurable.
+- type:  
+(1) Only the velocity errors of all the vehicles are measurable;  
+(2) All the states, including velocity error and spacing error are measurable;  
+(3) Velocity error and spacing error of the CAVs are measurable,and the velocity error of the HDVs are measurable.  
 <details>
 <summary>Click here to view code</summary>
 
@@ -712,6 +784,7 @@ end
 ##### [qp_DeeP_LCC.m](https://github.com/soc-ucsd/DeeP-LCC/blob/main/_fcn/qp_DeeP_LCC.m)
 
 Input:
+
 - Up & Uf:             Hankel matrix of pre-collected input data
 - Yp & Yf:             Hankel matrix of pre-collected output data
 - Ep & Ef:             Hankel matrix of pre-collected external input data
@@ -722,6 +795,7 @@ Input:
 - u_limit & s_limit:   bound on control input & spacing
 
 Output:
+
 - u_opt:               designed optimal future control input
 - y_opt:               predicted output in the optimal future control input
 - problem_status:      problem status in optimization calculation
@@ -847,6 +921,7 @@ end
 ##### [qp_MPC.m](https://github.com/soc-ucsd/DeeP-LCC/blob/main/_fcn/qp_MPC.m)
 
 Input:
+
 - ID:                 vehicle ID
 - Ts:                 sampling time
 - hdv_type:           type of HDV car-following model
@@ -860,6 +935,7 @@ Input:
 - previous_u_opt:     control input in previous time step
 
 Output:
+
 - u_opt:               designed optimal future control input
 - y_opt:               predicted output in the optimal future control input
 - problem_status:      problem status in optimization calculation
@@ -869,6 +945,7 @@ Optimization Formulation:
 mininize $$||y||_{Q_blk}^2 + ||u||_{R_blk}^2 $$
 
 subject to:
+
 - xini is estimated from past data uini,yini 
 - x    = Ax + Bu
 - y    = Cx
@@ -2349,11 +2426,13 @@ print(gcf,'./Figures_Fig2_OVMSpacingPolicy','-painters','-depsc2','-r300');
 ## Python Implementation
 Python implementation follows closely with Matlab implementation.
 It simulates two scenarios:
+
 - Scenario 1: Safety test with head vehicle takeing a sudden brake 
 - Scenario 2: New European Driving Cyccle (NEDC) simulation with head vehicle following a trajectory modified from Extra-Urban Driving Cycle (EUDC) in NEDC
 
 ### Packages
 The python implementation requires user to have the following packages installed:
+
 - numpy
 - cvxopt
 - scipy.io
@@ -2365,8 +2444,10 @@ The python implementation requires user to have the following packages installed
 
 ### Function
 Two main functions are:
+
 1. _main_brake_simulation.py_
 This simulates scenario 1.
+
 2. _main_nedc_simulation.py_
 This simulates scenario 2.
 
@@ -2375,6 +2456,7 @@ Both functions allow user to switch between MPC and DeePC method by changing var
 controller_type     = 1    # 1. DeeP-LCC  2. MPC
 ```
 The optimization problem is solved in the following functions:
+
 1. _qp_DeeP_LCC.py_
 2. _qp_MPC.py_
 
@@ -2388,6 +2470,7 @@ We consider eight vehicles with two CAVs, i.e., $$n = 8, m = 2$$ in the above fi
 ![Result_fig1](img/deepLCC/Result_fig1.png)
 
 In DeeP-LCC, we use the following parameters.
+
 1. In offline data collection: the length for the pre-collected data is $T = 2000$ with $\Delta t = 0.05s$
 2. In online predictive control: the time horizons for the future and past trajectories are set to $N = 50$. $T_{ini} = 20$. For constraints, we have $$\tilde{s}_{max} = 20, \tilde{s}_{min} = -15, a_{max} = 2, a_{min} = -5$$.
 
@@ -2424,10 +2507,10 @@ Python: 39.6 min
 
 
 ## Reference
-[1]Wang, J., Zheng, Y., Li, K.,& Xu, Q.,(2023). DeeP-LCC: Data-EnablEd Predictive Leading Cruise Control in Mixed Traffic Flow. 2203-10639. [[pdf](https://arxiv.org/abs/2203.10639v2)]
+[1] Wang, J., Zheng, Y., Li, K.,& Xu, Q.,(2023). DeeP-LCC: Data-EnablEd Predictive Leading Cruise Control in Mixed Traffic Flow. 2203-10639. [[pdf](https://arxiv.org/abs/2203.10639v2)]
 
-[2]Wang, J., Zheng, Y., Li, K.,& Xu, Q.,(2022). Data-Driven Predictive Control for Connected and Autonomous Vehicles in Mixed Traffic. 2110-100. [[pdf](https://arxiv.org/abs/2110.10097)]
+[2] Wang, J., Zheng, Y., Li, K.,& Xu, Q.,(2022). Data-Driven Predictive Control for Connected and Autonomous Vehicles in Mixed Traffic. 2110-100. [[pdf](https://arxiv.org/abs/2110.10097)]
 
-[3]D. P. Bowyer, R. Akccelik, and D. Biggs, Guide to fuel consumption
+[3] D. P. Bowyer, R. Akccelik, and D. Biggs, Guide to fuel consumption
 analysis for urban traffic management. Vermont South, Australia:
 ARRB Transport Research Ltd, 1985, no. 32. 
