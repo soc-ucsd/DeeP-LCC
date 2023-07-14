@@ -802,7 +802,9 @@ Output:
 
 Optimization formulation:
 
-minimize $$ ||y||_{Q_blk}^2 + ||u||_{R_blk}^2 + lambda_g||g||_2^2 + lambda_y||sigma_y||_2^2 $$
+minimize
+$$
+||y||_{Q_blk}^2 + ||u||_{R_blk}^2 + lambda_g||g||_2^2 + lambda_y||sigma_y||_2^2 $$
 
 subject to:
 $$\begin{bmatrix}

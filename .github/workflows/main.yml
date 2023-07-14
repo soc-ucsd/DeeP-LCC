@@ -14,5 +14,5 @@ jobs:
       - run: pip install mkdocs
       - run: pip install mkdocs-material
       - run: pip install mkdocs-glightbox
-      - run: pip install python-markdown-math
+      - run: pip install https://github.com/mitya57/python-markdown-math/archive/master.zip
       - run: mkdocs gh-deploy --force --clean --verbose
